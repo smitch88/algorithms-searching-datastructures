@@ -1,8 +1,8 @@
-require(["domReady", "datastructures/array", "datastructures/dynamicArray"], function (domReady, BasicArray, DynamicArray) {
+require(["domReady", "datastructures/bitArray", "datastructures/dynamicArray"], function (domReady, BitArray, DynamicArray) {
   'use strict';
 
   var moduleInstances = {
-    "basicArray": new BasicArray(),
+    "bitArray": new BitArray(),
     "dynamicArray": new DynamicArray()
   };
 
@@ -37,6 +37,8 @@ require(["domReady", "datastructures/array", "datastructures/dynamicArray"], fun
       resetCenterPanel();
 
     }
+
+    window.scrollTo( 0, 0 );
 
     return;
   };

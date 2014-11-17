@@ -34,9 +34,10 @@ body {
   border-right: 1px solid #ddd;
   min-height: 50em;
 
-  ul {
-    padding-left: 15px;
-  }
+}
+
+#left-panel ul {
+  padding-left: 15px;
 }
 
 #closer {
