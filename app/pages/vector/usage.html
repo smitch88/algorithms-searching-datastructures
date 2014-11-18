@@ -1,0 +1,126 @@
+<pre>
+
+  var vector1 = new Vector(); // []
+  var vector2 = new Vector( 10 ); // [null,null,null,null,null,null,null,null,null,null]
+
+  console.log( "vector1 size is: " + vector1.size() ); // 0
+  console.log( "vector2 size is: " + vector2.size() );  // 10
+
+  vector1.add( "a" ); // add new element "a" to vector1
+
+  console.log( "vector1 contents is: " + JSON.stringify(vector1._instance()) + " with new size: " + vector1.size());
+
+  vector2.addAll( ["a","b","c"] ); // add new element collection ["a","b","c"] to vector2
+
+  console.log( "vector2 contents is: " + JSON.stringify(vector2._instance()) + " with new size: " + vector2.size());
+
+  console.log( "vector1 before clear: " + JSON.stringify(vector1._instance())); // ["a"]
+
+  vector1.clear();
+
+  console.log( "vector1 after clear: " + JSON.stringify(vector1._instance())); // []
+
+  var containsElementA = vector2.contains("a");
+  var containsAllElements1 = vector2.containsAll(["a","b"]);
+  var containsAllElements2 = vector2.containsAll(["a","b","d"]);
+  var indexOfElementA = vector2.indexOf("a");
+
+  console.log( "vector2 has 'a': " + containsElementA ); // true
+  console.log( "vector2 has 'a' and 'b': " + containsAllElements1 ); // true
+  console.log( "vector2 has 'a' and 'b' and 'd': " + containsAllElements2 ); // false
+  console.log( "vector2 has 'a' at index: " + indexOfElementA ); // 10
+
+  vector2.remove(10);
+
+  console.log( "vector2 after removing index 10 ('a'): " + JSON.stringify(vector2._instance())); // [null,null,null,null,null,null,null,null,null,null,"b","c"]
+
+  vector2.removeIf(isNull);
+
+  console.log( "vector2 after removing nulls: " + JSON.stringify(vector2._instance())); // ["b","c"]
+
+  vector2.replaceAll(1);
+
+  console.log( "vector2 after removing nulls: " + JSON.stringify(vector2._instance())); // ["1","1"]
+
+  vector2.set(0,2);
+
+  console.log( "vector2 after setting index 0 with value 2: " + JSON.stringify(vector2._instance())); // ["2","1"]
+
+  vector2.sort();
+
+  console.log( "vector2 after sorting: " + JSON.stringify(vector2._instance())); // ["1","2"]
+
+</pre>
+
+<button id="runVectorCode" type="button" class="btn btn-lg btn-primary">Run Code</button>
+
+<script>
+
+  require(["domReady!","datastructures/vector"], function (domReady, Vector) {
+      'use strict';
+
+      document.getElementById( "runVectorCode").addEventListener( "click", runVectorCode );
+
+      function isNull(element) {
+        return element === null;
+      }
+
+      function runVectorCode(){
+
+        var vector1 = new Vector(); // []
+        var vector2 = new Vector( 10 ); // [null,null,null,null,null,null,null,null,null,null]
+
+        console.log( "vector1 size is: " + vector1.size() ); // 0
+        console.log( "vector2 size is: " + vector2.size() );  // 10
+
+        vector1.add( "a" ); // add new element "a" to vector1
+
+        console.log( "vector1 contents is: " + JSON.stringify(vector1._instance()) + " with new size: " + vector1.size());
+
+        vector2.addAll( ["a","b","c"] ); // add new element collection ["a","b","c"] to vector2
+
+        console.log( "vector2 contents is: " + JSON.stringify(vector2._instance()) + " with new size: " + vector2.size());
+
+        console.log( "vector1 before clear: " + JSON.stringify(vector1._instance())); // ["a"]
+
+        vector1.clear();
+
+        console.log( "vector1 after clear: " + JSON.stringify(vector1._instance())); // []
+
+        var containsElementA = vector2.contains("a");
+        var containsAllElements1 = vector2.containsAll(["a","b"]);
+        var containsAllElements2 = vector2.containsAll(["a","b","d"]);
+        var indexOfElementA = vector2.indexOf("a");
+
+        console.log( "vector2 has 'a': " + containsElementA ); // true
+        console.log( "vector2 has 'a' and 'b': " + containsAllElements1 ); // true
+        console.log( "vector2 has 'a' and 'b' and 'd': " + containsAllElements2 ); // false
+        console.log( "vector2 has 'a' at index: " + indexOfElementA ); // 10
+
+        vector2.remove(10);
+
+        console.log( "vector2 after removing index 10 ('a'): " + JSON.stringify(vector2._instance())); // [null,null,null,null,null,null,null,null,null,null,"b","c"]
+
+        vector2.removeIf(isNull);
+
+        console.log( "vector2 after removing nulls: " + JSON.stringify(vector2._instance())); // ["b","c"]
+
+        vector2.replaceAll(1);
+
+        console.log( "vector2 after removing nulls: " + JSON.stringify(vector2._instance())); // ["1","1"]
+
+        vector2.set(0,2);
+
+        console.log( "vector2 after setting index 0 with value 2: " + JSON.stringify(vector2._instance())); // ["2","1"]
+
+        vector2.sort();
+
+        console.log( "vector2 after sorting: " + JSON.stringify(vector2._instance())); // ["1","2"]
+
+        return;
+      }
+
+    });
+
+</script>
+

@@ -50,3 +50,14 @@ body {
 #closer:hover {
   color: #999;
 }
+
+.well-lg {
+  padding: 0 24px 24px 24px;
+}
+
+.tab-content > .tab-pane {
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+}

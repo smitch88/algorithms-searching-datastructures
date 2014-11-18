@@ -81,8 +81,8 @@
           <ul>
             <li> Arrays
               <ul>
+                <li><a href="#vector">Vector/Dynamic array</a></li>
                 <li><a href="#bitArray">Bit array</a></li>
-                <li><a href="#dynamicArray">Dynamic array</a></li>
                 <li><a href="#circularBuffer">Circular buffer</a></li>
                 <li><a href="#hashTable">Hash table</a></li>
                 <li><a href="#hasedArrayTree">Hashed array tree</a></li>
@@ -182,15 +182,32 @@
 
       <div class="row">
 
-        <div id="main-content">
+        <div id="main-content" class="col-xs-12">
 
           <h1 id="title"></h1>
 
           <p id="description"></p>
 
-          <div class="well well-lg hide">
+          <p id="contextual-description"></p>
 
-            <div id="codez"></div>
+          <div class="well well-lg">
+
+            <h1>Coding Example</h1>
+
+            <div id="codez-holder" role="tabpanel" style="display: none;">
+
+              <ul id="codez-tabs" class="nav nav-tabs">
+                <li class="active"><a id="codez" href="#" data-toggle="tabajax" data-target="#codez-display">Usage</a></li>
+                <li><a id="js-codez" href="#" data-toggle="tabajax" data-target="#js-codez-display">Javascript Code</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="codez-display"></div>
+                <div class="tab-pane" id="js-codez-display"></div>
+              </div>
+
+            </div>
 
           </div>
 

@@ -1,17 +1,11 @@
-
-define(["generator"], function (generator) {
+define(["meta","datastructures/vector"], function (meta,Vector) {
   'use strict';
 
-  var bitArray = function (size) {
-    this.size = size;
-    this.title = "Bit Array Data Structure";
-    this.description = "A bit array (also known as bitmap, bitset, bit string, or bit vector) is an array data " +
-    "structure that compactly stores bits. It can be used to implement a simple set data structure. " +
-    "A bit array is effective at exploiting bit-level parallelism in hardware to perform operations quickly. " +
-    "A typical bit array stores kw bits, where w is the number of bits in the unit of storage, such as a byte or word," +
-    " and k is some nonnegative integer. If w does not divide the number of bits to be stored, some space is wasted " +
-    "due to internal fragmentation";
-
+  var bitArray = function (size, defaultValue) {
+    this.type = "bitArray";
+    this.el = new Vector(size); // just uses the base array impl
+    this.meta = meta.get(this.type);
+    this.el.replaceAll(typeof defaultValue !== "undefined" && defaultValue); // fill array with booleans set to false or default
     return this;
   };
 
@@ -19,25 +13,69 @@ define(["generator"], function (generator) {
 
     constructor: bitArray,
 
-    init: function () {
-
-      console.log("process generator with size: " + this.size);
-      console.log(generator.create());
-
-      return this;
-
+    // public instance methods
+    and: function( bitArray ){
+      return bitArray;
     },
 
-    getDescription: function () {
-      return this.description;
+    andNot: function( bitArray ){
+      return bitArray;
     },
 
-    getTitle: function () {
-      return this.title;
+    cardinality: function( bitArray ){
+      return;
     },
 
-    getCodez: function () {
-      return [];
+    clear: function( index, from, to ){
+      return;
+    },
+
+    clone: function(){
+      return bitArray;
+    },
+
+    flip: function( index, from, to ){
+      return;
+    },
+
+    get: function( index, from, to ){
+      return index;
+    },
+
+    intersects: function( bitArray ){
+      return true;
+    },
+
+    isEmpty: function(){
+      return true;
+    },
+
+    length: function(){
+      return 1;
+    },
+
+    nextClearBit: function( from ){
+      return 1;
+    },
+
+    nextSetBit: function( from ){
+      return 1;
+    },
+
+    or: function( bitArray ){
+      return;
+    },
+
+    previousClearBit: function( from ){
+      return 1;
+    },
+
+    previousSetBit: function( from ){
+      return 1;
+    },
+
+    set: function( index, from, to, value ){
+      return;
     }
 
   }
@@ -45,4 +83,3 @@ define(["generator"], function (generator) {
   return bitArray;
 
 });
-
